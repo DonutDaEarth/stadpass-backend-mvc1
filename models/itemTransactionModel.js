@@ -39,7 +39,6 @@ module.exports = {
 
   getItemTransactionsData: async function() {
     try {
-      await client.connect();
       const res = await client.query("SELECT * FROM item_transactions");
       return res.rows;
     } catch (err) {
