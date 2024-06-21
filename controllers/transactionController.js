@@ -3,8 +3,8 @@ const transactionModel = require('../models/transactionModel');
 
 module.exports = {
   createTransactionData: async function(req, res) {
-    const { total_price, tax, discount, total_price_after, customer_id, courier_id, order_status } = req.body;
-    const result = await transactionModel.createTransactionData(total_price, tax, discount, total_price_after, customer_id, courier_id, order_status);
+    const {transaction_id, total_price, tax, discount, total_price_after, customer_id, courier_id, order_status } = req.body;
+    const result = await transactionModel.createTransactionData(transaction_id, total_price, tax, discount, total_price_after, customer_id, courier_id, order_status);
     res.send(result);
   },
 
@@ -22,6 +22,6 @@ module.exports = {
   updateTransactionData: async function(req, res){
     const { transaction_id, total_price, tax, discount, total_price_after, customer_id, courier_id, order_status } = req.body;
     const result = await transactionModel.updateTransactionData(transaction_id, total_price, tax, discount, total_price_after, customer_id, courier_id, order_status);
-    res.send(result)
+    //res.send(result)
   }
 };

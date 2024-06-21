@@ -21,7 +21,7 @@ module.exports = {
       return res.rows;
     } catch (err) {
       console.error(err.stack);
-    } 
+    }
   },
 
   deleteRestaurantData: async function(restaurant_id) {

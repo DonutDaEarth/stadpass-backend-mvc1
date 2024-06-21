@@ -21,7 +21,7 @@ module.exports = {
       return res.rows;
     } catch (err) {
       console.error(err.stack);
-    } 
+    }
   },
 
   deleteItemData: async function(item_id) {
@@ -34,7 +34,7 @@ module.exports = {
       return res.rows;
     } catch (err) {
       console.error(err.stack);
-    } 
+    }
   },
 
   getItemData: async function() {

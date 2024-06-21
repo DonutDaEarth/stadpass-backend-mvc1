@@ -21,7 +21,7 @@ module.exports = {
       return res.rows;
     } catch (err) {
       console.error(err.stack);
-    } 
+    }
   },
 
   deleteCustomerData: async function(customer_id) {
@@ -35,7 +35,7 @@ module.exports = {
       return res.rows;
     } catch (err) {
       console.error(err.stack);
-    } 
+    }
   },
 
   getCustomerData: async function() {

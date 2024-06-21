@@ -11,17 +11,17 @@ const client = new Client({
 });
 
 module.exports = {
-  createTransactionData: async function(total_price, tax, discount, total_price_after, customer_id, courier_id, order_status) {
+  createTransactionData: async function(transaction_id, total_price, tax, discount, total_price_after, customer_id, courier_id, order_status) {
     try {
       const query = {
-        text: "INSERT INTO transaction ( transaction_time, total_price, tax, discount, total_price_after,customer_id, courier_id, order_status) VALUES ( NOW(), $1, $2, $3, $4, $5, $6, $7)",
-        values: [total_price, tax, discount, total_price_after, customer_id, courier_id, order_status],
+        text: "INSERT INTO transaction (transaction_id, transaction_time, total_price, tax, discount, total_price_after,customer_id, courier_id, order_status) VALUES ($8, NOW(), $1, $2, $3, $4, $5, $6, $7)",
+        values: [total_price, tax, discount, total_price_after, customer_id, courier_id, order_status, transaction_id],
       };
       const res = await client.query(query);
       return res.rows;
     } catch (err) {
       console.error(err.stack);
-    } 
+    }
   },
 
   deleteTransactionData: async function(transaction_id) {
